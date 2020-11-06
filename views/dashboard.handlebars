@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+      <h1 class="text-align-center">
+        Hello {{user.username}}!
+      </h1>
+       <div class="flex-row justify-space-around align-center p-2">
+            <img src="{{user.image}}" style="max-width:15%;"></img>
+            <div>
+                <p>City: {{user.city}}</p>
+                <p>Bio: {{user.bio}}<p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#if user.posts.length}}
+<section>
+  <h2 class="profile-data">Your Posts</h2>
+    {{#each user.posts as |post|}}
+      {{> dashboard-postinfo post}}
+    {{/each}}
+
+</section>
+{{/if}}
+
+<button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
+
+{{#if posts.length}}
+<script src="/javascript/add-post.js"></script>
+{{/if}}
